@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hanine Ayari — Portfolio</title>
+  <meta name="description" content="Hanine Ayari — software pre-engineering student. Full-stack apps, IoT, and animated portfolio." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    /* Reset + base */
+    :root{
+      --bg-1: #05050a;
+      --bg-2: #0f1724;
+      --accent: #5eead4;
+      --muted: #98a0ad;
+      --card: rgba(255,255,255,0.03);
+      --glass: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.06);
+      --glass-highlight: rgba(255,255,255,0.02);
+      --glass-shadow: rgba(2,6,23,0.7);
+      --radius: 14px;
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body,#app{height:100%}
+    body{
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(94,234,212,0.04), transparent 10%),
+                  radial-gradient(1000px 400px at 90% 90%, rgba(96,165,250,0.03), transparent 15%),
+                  linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      color: #e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:48px 24px;
+      display:flex;justify-content:center;align-items:flex-start;
+    }
+
+    .wrap{width:100%;max-width:var(--maxw)}
+
+    /* top nav */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:36px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);
+      box-shadow:0 6px 18px rgba(96,165,250,0.08), inset 0 -6px 18px rgba(0,0,0,0.25);
+      display:grid;place-items:center;font-weight:800;color:#071023
+    }
+    .brand h1{font-size:18px;letter-spacing:-0.2px}
+    .brand p{font-size:12px;color:var(--muted);margin-top:4px}
+
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:14px}
+    nav a:hover{color:var(--accent)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+    .intro{padding:26px;border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid var(--glass-border);box-shadow:0 6px 30px var(--glass-shadow)}
+    .intro h2{font-size:34px;margin-bottom:8px}
+    .intro p{color:var(--muted);line-height:1.5}
+    .intro .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,#071023,rgba(255,255,255,0.02));border:1px solid rgba(255,255,255,0.06);color:var(--accent);text-decoration:none;font-weight:600}
+    .btn.secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
+
+    /* profile card */
+    .card{padding:18px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid var(--glass-border)}
+    .avatar{width:80px;height:80px;border-radius:12px;background:linear-gradient(135deg,#60a5fa,#5eead4);display:inline-grid;place-items:center;font-weight:800;color:#071023;margin-bottom:10px}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* projects */
+    section.projects{margin-top:28px}
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .project{
+      padding:16px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
+      border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);
+      transition:transform .36s cubic-bezier(.2,.9,.2,1), box-shadow .36s;
+      will-change:transform;
+      position:relative;overflow:hidden;
+    }
+    .project:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.7)}
+    .project h3{font-size:16px}
+    .project p{color:var(--muted);font-size:13px;margin-top:8px}
+    .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+    .project a{position:absolute;right:12px;bottom:12px;font-weight:600;color:var(--accent);text-decoration:none}
+
+    /* skills */
+    .skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .skill{background:linear-gradient(90deg,rgba(255,255,255,0.02),transparent);padding:8px 10px;border-radius:10px;color:var(--muted);font-size:13px;border:1px solid rgba(255,255,255,0.02)}
+
+    /* footer */
+    footer{margin-top:48px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr}
+      nav{display:none}
+    }
+
+    /* subtle entrance animations */
+    .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* floating accent orbs */
+    .orb{position:fixed;width:260px;height:260px;border-radius:50%;filter:blur(60px);opacity:.08;z-index:0}
+    .orb.one{left:-60px;top:-40px;background:linear-gradient(135deg,#5eead4,#60a5fa)}
+    .orb.two{right:-80px;bottom:-80px;background:linear-gradient(135deg,#a78bfa,#60a5fa)}
+
+    /* small utility */
+    .muted{color:var(--muted)}
+
+  </style>
+</head>
+<body>
+  <div id="app" class="wrap">
+
+    <div class="orb one" aria-hidden></div>
+    <div class="orb two" aria-hidden></div>
+
+    <header>
+      <div class="brand">
+        <div class="logo">HA</div>
+        <div>
+          <h1>Hanine Ayari</h1>
+          <p class="small">Software pre-engineering student</p>
+          <p class="small" style="margin-top:4px">📫 <a href="mailto:ayarihanine@proton.me" style="color:var(--accent);text-decoration:underline">ayarihanine@proton.me<\/a></p>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <div>
+        <section class="intro card reveal" id="intro">
+          <h2>Hi — I’m Hanine. I build full‑stack apps & IoT prototypes.</h2>
+          <p>I’m a software pre‑engineering student who enjoys combining hardware (ESP32/Arduino) with modern web stacks to create practical projects. Below are selected works and tools I use.</p>
+          <div class="cta">
+            <a class="btn" href="https://github.com/ayarih" target="_blank">View GitHub</a>
+            <a class="btn secondary" href="#contact">Get in touch</a>
+          </div>
+        </section>
+
+        </section>
+
+        <!-- Profile moved under intro -->
+        
+
+        <section class="projects reveal" id="projects">
+          <h3 class="small muted">Selected Projects</h3>
+          <div class="projects-grid" id="projectsGrid">
+            <!-- project cards populated by JS -->
+          </div>
+        </section>
+
+        <section class="reveal" id="skills">
+          <h3 class="small muted">Skills & Tools</h3>
+          <div class="skills-grid" id="skillsGrid"></div>
+        </section>
+
+      </div>
+
+      
+
+    </main>
+
+    <footer id="contact">
+      <p>© <span id="year"></span> Hanine Ayari — Built with care. • <a href="https://github.com/ayarih" style="color:var(--accent)">GitHub</a></p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Data (can be replaced with your real repos)
+    const projects = [
+      {name:'authentification',desc:'Java mobile app for authentication examples.',tech:['Java','Android'],url:'https://github.com/ayarih/authentification'},
+      {name:'aes-encryption',desc:'Python AES encryption utilities.',tech:['Python','Crypto'],url:'https://github.com/ayarih/aes-encryption'},
+      {name:'open-swe',desc:'Fork of an open coding agent.',tech:['TypeScript','AI'],url:'https://github.com/ayarih/open-swe'},
+      {name:'Mind-connect',desc:'Find psychologists and book appointments.',tech:['JS','Web'],url:'https://github.com/ayarih/Mind-connect'},
+      {name:'Car-rental',desc:'Car rental app project.',tech:['JS','Full-stack'],url:'https://github.com/ayarih/Car-rental'}
+    ];
+
+    const skills = ['Arduino / ESP32','Java','Python','TypeScript / JavaScript','React Native','Firebase','SQL / MariaDB / MongoDB','C / C++','Figma'];
+
+    const projectsGrid = document.getElementById('projectsGrid');
+    projects.forEach((p, i) => {
+      const card = document.createElement('article');
+      card.className = 'project';
+      card.innerHTML = `<h3>${p.name}</h3><p>${p.desc}</p>`;
+      const tags = document.createElement('div'); tags.className='tags';
+      p.tech.forEach(t=>{const s=document.createElement('span');s.className='tag';s.textContent=t;tags.appendChild(s)});
+      card.appendChild(tags);
+      const a = document.createElement('a'); a.href = p.url; a.target='_blank'; a.textContent='Repo ↗';
+      card.appendChild(a);
+      // small staggered reveal
+      card.style.transitionDelay = (i*80)+'ms';
+      projectsGrid.appendChild(card);
+
+      // 3D tilt on mouse
+      card.addEventListener('mousemove', e=>{
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) - rect.width/2;
+        const y = (e.clientY - rect.top) - rect.height/2;
+        card.style.transform = `perspective(800px) rotateX(${(-y/20)}deg) rotateY(${(x/20)}deg) translateY(-6px)`;
+      });
+      card.addEventListener('mouseleave', ()=>{card.style.transform='translateY(0)';});
+    });
+
+    const skillsGrid = document.getElementById('skillsGrid');
+    skills.forEach(s=>{const el=document.createElement('div');el.className='skill';el.textContent=s;skillsGrid.appendChild(el)});
+
+    // reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target)}},{threshold:0.12});
+    });
+    reveals.forEach(r=>io.observe(r));
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // gentle floating orbs animation
+    const orbOne = document.querySelector('.orb.one');
+    const orbTwo = document.querySelector('.orb.two');
+    let t = 0; function floatOrbs(){ t+=0.01; orbOne.style.transform = `translate(${Math.sin(t)*8}px, ${Math.cos(t/1.3)*6}px)`; orbTwo.style.transform = `translate(${Math.cos(t/1.7)*6}px, ${Math.sin(t/1.1)*10}px)`; requestAnimationFrame(floatOrbs);} floatOrbs();
+
+  </script>
+</body>
+</html>
