@@ -1,90 +1,76 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hanine Ayari — Portfolio</title>
-  <meta name="description" content="Hanine Ayari — software pre-engineering student. Full-stack apps, IoT, and animated portfolio." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanine Ayari — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app" class="wrap">
-  <div class="orb one" aria-hidden></div>
-  <div class="orb two" aria-hidden></div>
 
-  <header>
-    <div class="brand">
-      <div class="logo">HA</div>
-      <div>
-        <h1>Hanine Ayari</h1>
-        <p class="small">Software pre-engineering student</p>
-        <p class="small">📫 <a href="mailto:ayarihanine@proton.me" class="accent-link">ayarihanine@proton.me</a></p>
-        <p class="small">LinkedIn: <a href="https://linkedin.com/in/hanine-ayari-7990b323b" class="accent-link">hanine-ayari</a></p>
-      </div>
-    </div>
-    <nav>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#leadership">Leadership</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
+<div class="logo">HA</div>
+<nav>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#education">Education</a>
+<a href="#leadership">Leadership</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
 
-  <main class="hero">
-    <div>
-      <section class="intro card reveal" id="intro">
-        <h2>Hi — I’m Hanine. I build full‑stack apps & IoT prototypes.</h2>
-        <p>I’m a software pre‑engineering student who enjoys combining hardware (ESP32/Arduino) with modern web stacks to create practical projects. Below are selected works and tools I use.</p>
-        <div class="cta">
-          <a class="btn" href="https://github.com/ayarih" target="_blank">View GitHub</a>
-          <a class="btn secondary" href="#contact">Get in touch</a>
-        </div>
-      </section>
-
-      <section class="projects reveal" id="projects">
-        <h3 class="small muted">Selected Projects</h3>
-        <div class="projects-grid" id="projectsGrid"></div>
-      </section>
-
-      <section class="reveal" id="skills">
-        <h3 class="small muted">Skills & Tools</h3>
-        <div class="skills-grid" id="skillsGrid"></div>
-      </section>
-
-      <section class="education reveal" id="education">
-        <h3 class="small muted">Education</h3>
-        <div class="card">
-          <h4>Bachelor’s Degree in Information Technology</h4>
-          <p>ISET Rades, 2023 – 2026 (Ongoing)</p>
-          <p>Relevant coursework: Software Architecture, OOP, System Design, Databases, Software Testing, Project Management, Data Structures</p>
-        </div>
-        <div class="card">
-          <h4>Baccalaureate in Computer Science</h4>
-          <p>Bechir Nabheni High School, Hammam Lif — 2023</p>
-        </div>
-      </section>
-
-      <section class="leadership reveal" id="leadership">
-        <h3 class="small muted">Leadership & Activities</h3>
-        <div class="card">
-          <ul>
-            <li>eTwinning Project Participant (2019–2020)</li>
-            <li>BIL LPBT Team Member (2021–2022)</li>
-            <li>Visualize Boumhal Team Member (2022–2023)</li>
-          </ul>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <footer id="contact">
-    <p>© <span id="year"></span> Hanine Ayari — Built with care. • <a href="https://github.com/ayarih" class="accent-link">GitHub</a></p>
-  </footer>
+<section class="hero">
+<div class="hero-content">
+<h1>Hanine Ayari</h1>
+<p>Software pre-engineering student building full-stack apps & IoT prototypes.</p>
+<div class="cta">
+<a class="btn" href="https://github.com/ayarih" target="_blank">GitHub</a>
+<a class="btn" href="mailto:ayarihanine@proton.me">Contact Me</a>
+<a class="btn linkedin" href="https://www.linkedin.com/in/hanine-ayari-7990b323b/" target="_blank">LinkedIn</a>
 </div>
+</div>
+</section>
+
+<section id="projects">
+<h2 class="section-title">Projects</h2>
+<div class="card-grid" id="projectsGrid"></div>
+</section>
+
+<section id="skills">
+<h2 class="section-title">Skills</h2>
+<div class="skills" id="skillsGrid"></div>
+</section>
+
+<section id="education">
+<h2 class="section-title">Education</h2>
+<div class="card">
+<h3>Bachelor’s Degree in Information Technology</h3>
+<p>ISET Rades, 2023–2026</p>
+<p>Relevant coursework: Software Architecture, OOP, System Design, Databases, Testing, Project Management, Data Structures</p>
+</div>
+<div class="card" style="margin-top:16px">
+<h3>Baccalaureate in Computer Science</h3>
+<p>Bechir Nabheni High School — 2023</p>
+</div>
+</section>
+
+<section id="leadership">
+<h2 class="section-title">Leadership</h2>
+<div class="card">
+<ul>
+<li>eTwinning Project Participant (2019–2020)</li>
+<li>BIL LPBT Team Member (2021–2022)</li>
+<li>Visualize Boumhal Team Member (2022–2023)</li>
+</ul>
+</div>
+</section>
+
+<footer id="contact">
+© <span id="year"></span> Hanine Ayari — Built with care.
+<br>
+<a href="https://www.linkedin.com/in/hanine-ayari-7990b323b/" target="_blank" class="footer-link">LinkedIn ↗</a>
+</footer>
 
 <script src="script.js"></script>
 </body>
